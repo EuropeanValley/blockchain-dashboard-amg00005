@@ -1,47 +1,37 @@
 # Blockchain Dashboard Project
 
-Use this repository to build your blockchain dashboard project.
-Update this README every week.
-
 ## Student Information
 
-| Field              | Value                         |
-| ------------------ | ----------------------------- |
-| Student Name       | Amaia MArtin Grande.          |
-| GitHub Username    | amg00005                      |
-| Project Title      | Blockchain Dashboard          |
-| Chosen AI Approach | Supervised Learning  |
+| Field              | Value                              |
+| ------------------ | ---------------------------------- |
+| Student Name       | Amaia Martín Grande                |
+| GitHub Username    | amg00005                           |
+| Project Title      | CryptoChain Analyzer Dashboard     |
+| Chosen AI Approach | Anomaly Detector (Isolation Forest) |
 
 ## Module Tracking
 
-Use one of these values: `Not started`, `In progress`, `Done`
-
-| Module | What it should include | Status      |
-| ------ | ---------------------- | ----------- |
-| M1     | Proof of Work Monitor  | Not started |
-| M2     | Block Header Analyzer  | Not started |
-| M3     | Difficulty History     | Not started |
-| M4     | AI Component           | Not started |
+| Module | What it should include  | Status      |
+| ------ | ----------------------- | ----------- |
+| M1     | Proof of Work Monitor   | Done        |
+| M2     | Block Header Analyzer   | In progress |
+| M3     | Difficulty History      | In progress |
+| M4     | AI Component            | In progress |
 
 ## Current Progress
 
-Write 3 to 5 short lines about what you have already done.
-
-* Accepted GitHub Classroom assignment
-* Cloned repository in Visual Studio Code
-* Updated README with initial information
+* M1 complete: live difficulty, hash vs target verification, inter-block time histogram with exponential baseline, hash rate estimation.
+* First API call working: connects to Blockstream and prints block height, hash, difficulty, nonce, bits, and tx count.
+* Dashboard running locally with Streamlit (`streamlit run app.py`).
+* Modules M2, M3 and M4 scaffolded and partially implemented.
 
 ## Next Step
 
-Write the next small step you will do before the next class.
-
-* Start implementing Module M1 (Proof of Work Monitor)
+* Test and fix M2 (Block Header Analyzer) — verify SHA256(SHA256(header)) locally with hashlib.
 
 ## Main Problem or Blocker
 
-Write here if you are stuck with something.
-
-* No blockers for now
+* No blockers for now.
 
 ## How to Run
 
@@ -53,16 +43,15 @@ streamlit run app.py
 ## Project Structure
 
 ```text
-template-blockchain-dashboard/
+blockchain-dashboard-amg00005/
 |-- README.md
 |-- requirements.txt
-|-- .gitignore
 |-- app.py
 |-- api/
-|   `-- blockchain_client.py
-`-- modules/
+|   └── blockchain_client.py
+└── modules/
     |-- m1_pow_monitor.py
     |-- m2_block_header.py
     |-- m3_difficulty_history.py
-    `-- m4_ai_component.py
+    └── m4_ai_component.py
 ```
