@@ -35,3 +35,26 @@ def get_difficulty_history(n_points: int = 100) -> list[dict]:
     response.raise_for_status()
     data = response.json()
     return data.get("values", [])[-n_points:]
+
+# ---------------------------------------------------------------------------
+# Milestone 2 — observaciones criptográficas (Session 1)
+# ---------------------------------------------------------------------------
+# Para probar la conexión ejecuta este archivo directamente:
+#   python api/blockchain_client.py
+#
+# El hash del bloque empieza con muchos ceros → es el resultado del doble
+# SHA-256 que debe ser menor que el target. Esos ceros son la prueba del trabajo.
+#
+# El campo 'bits' codifica el target en formato compacto (256 bits).
+# Los mineros ajustan el nonce hasta encontrar un hash < target.
+#
+# El nonce es el número que los mineros incrementan en cada intento.
+# Con 32 bits (~4 mil millones de valores) a veces no es suficiente y
+# deben cambiar otros campos del header (extra nonce en la coinbase tx).
+
+if __name__ == "__main__":
+    block = get_latest_block()
+    print("Height:      ", block.get("height"))
+    print("Hash:        ", block.get("hash"))
+    print("Nonce:       ", block.get("nonce"))
+    print("Transactions:", block.get("n_tx"))
