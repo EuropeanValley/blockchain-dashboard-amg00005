@@ -58,3 +58,15 @@ if __name__ == "__main__":
     print("Hash:        ", block.get("hash"))
     print("Nonce:       ", block.get("nonce"))
     print("Transactions:", block.get("n_tx"))
+
+# LEADING ZEROS: el hash empieza con muchos ceros porque debe ser menor
+    # que el target. Cada cero hex representa 4 bits de trabajo demostrado.
+    # Cuantos más ceros, más intentos necesitó el minero → mayor dificultad.
+    hash_val = block.get("hash", "")
+    leading_zeros = len(hash_val) - len(hash_val.lstrip("0"))
+    print(f"Leading zero hex digits: {leading_zeros} ({leading_zeros * 4} bits)")
+
+    # BITS / TARGET: el campo 'bits' codifica el target en formato compacto.
+    # bits = 0xAABBCCDD → target = 0xBBCCDD * 256^(AA-3)
+    # El hash del bloque es válido solo si hash < target (Proof of Work).
+    # A mayor dificultad, menor target → más ceros exigidos en el hash.
