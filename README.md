@@ -14,20 +14,20 @@
 | Module | What it should include  | Status      |
 | ------ | ----------------------- | ----------- |
 | M1     | Proof of Work Monitor   | Done        |
-| M2     | Block Header Analyzer   | In progress |
+| M2     | Block Header Analyzer   | Done |
 | M3     | Difficulty History      | In progress |
 | M4     | AI Component            | In progress |
 
 ## Current Progress
 
 * M1 complete: live difficulty, hash vs target verification, inter-block time histogram with exponential baseline, hash rate estimation.
-* First API call working: connects to Blockstream and prints block height, hash, difficulty, nonce, bits, and tx count.
+* M2 complete: 80-byte header parsed field by field with struct (little-endian), SHA256(SHA256(header)) verified locally with hashlib, bits field decoded to 256-bit target, nonce space visualised, merkle root cross-checked against API.
+* First API call working: connects to Blockstream, prints block height, hash, difficulty, nonce, bits, tx count, and leading zero analysis.
 * Dashboard running locally with Streamlit (`streamlit run app.py`).
-* Modules M2, M3 and M4 scaffolded and partially implemented.
 
 ## Next Step
 
-* Test and fix M2 (Block Header Analyzer) â€” verify SHA256(SHA256(header)) locally with hashlib.
+* Implement M3 (Difficulty History) — plot difficulty evolution over adjustment periods and show real/target block time ratio.
 
 ## Main Problem or Blocker
 
